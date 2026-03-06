@@ -10,5 +10,5 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths()
   ],
-  base: '/The-Remnant-Project/', // <--- ADD THIS LINE FOR GITHUB PAGES
+  base: '/remnant-project/',
 });
