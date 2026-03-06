@@ -2,7 +2,7 @@
   "name": "site-prototype-react",
   "private": true,
   "type": "module",
-  "homepage": "https://aheinz92.github.io/remnant-project/",
+  "homepage": "https://aheinz92.github.io/the-remnant-project/",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",

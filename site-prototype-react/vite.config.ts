@@ -10,5 +10,5 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths()
   ],
-  base: '/remnant-project/',
+  base: '/the-remnant-project/',
 });
