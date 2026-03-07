@@ -1,5 +1,72 @@
-# The-Remnant-Project
-<!-- This readme file is to help people understand what your project is about, what your codebase includes, how to build and deploy the code, and how to contribute to the code -->
+# The Remnant Project
+
+## Project Overview
+
+The Remnant Project is a capstone-built prototype for a community-centered digital archive experience. This repository preserves both the production-facing website prototype and the longer-term database/schema design work created to support a fuller archival platform.
+
+The current deployed app is a React single-page site that presents exhibits, collections, timelines, interviews, places, people, contribution pathways, and other exploratory/archive-oriented pages. The database materials in this repo document a more complete backend direction, but that schema is not wired into the frontend in this codebase today.
+
+## Current State
+
+- The active web app lives in `site-prototype-react/` and is deployed to GitHub Pages.
+- The frontend is primarily a static/content-driven prototype with bundled media assets and route-based pages.
+- The SQL schema and handoff materials are preserved in `database work/` for future implementation, adaptation, or sponsor handoff.
+- An older static HTML prototype remains in `site-prototype/` as reference material.
+- Local-only companion project materials may exist in `local_assets/`, but those are intentionally excluded from git.
+
+## Tech Stack
+
+- React 19
+- Vite 5
+- React Router
+- Bootstrap and React Bootstrap
+- Font Awesome and React Icons
+- Static asset bundling through Vite
+- GitHub Pages deployment via `gh-pages`
+
+## Repository Layout
+
+- `site-prototype-react/`: Active frontend application and deployment target.
+- `site-prototype-react/src/pages/`: Route-level page components for the public site and exhibit flows.
+- `site-prototype-react/src/components/`: Shared layout, navigation, footer, scroll handling, and accessibility controls.
+- `site-prototype-react/src/assets/`: Bundled images and styling assets used by the React app.
+- `database work/`: SQL schema, explanation documents, handoff guide, EER diagram, and MySQL Workbench files.
+- `site-prototype/`: Earlier static prototype preserved for historical/reference purposes.
+
+## Running Locally
+
+Primary development happens inside `site-prototype-react/`.
+
+```bash
+cd site-prototype-react
+npm ci
+npm run dev
+```
+
+Useful commands:
+
+- `npm run dev`: Start the Vite development server.
+- `npm run build`: Create a production build in `dist/`.
+- `npm run preview`: Preview the production build locally.
+- `npm run deploy`: Publish the built site to the `gh-pages` branch.
+
+## Deployment Notes
+
+This project is configured for GitHub Pages repo-path hosting rather than a custom root domain. If the repository slug changes, update all repo-path-sensitive values together:
+
+- `site-prototype-react/package.json` (`homepage`)
+- `site-prototype-react/vite.config.ts` (`base`)
+- `site-prototype-react/src/main.jsx` (`BrowserRouter basename`)
+- `site-prototype-react/public/404.html` (client-side routing fallback path)
+
+## Maintenance Notes
+
+- Most site content is currently hardcoded in page components rather than driven by a live CMS or backend.
+- The database/schema deliverables are design and handoff artifacts, not an active runtime dependency of the deployed frontend.
+- The root-level `package.json` is not the primary app workflow; use `site-prototype-react/package.json` for install, build, preview, and deploy tasks.
+- The current build emits CSS `@import` ordering warnings from `site-prototype-react/src/assets/styles/custom.css`, but those warnings do not currently block builds or deployment.
+
+The original sponsor-facing database and handoff documentation is preserved below.
 
 ## Database Documentation
 
