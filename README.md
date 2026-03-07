@@ -8,10 +8,11 @@ The current deployed app is a React single-page site that presents exhibits, col
 
 ## Current State
 
-- The active web app lives in `site-prototype-react/` and is deployed to GitHub Pages.
+- The active web app now lives at the repository root and is deployed to GitHub Pages.
 - The frontend is primarily a static/content-driven prototype with bundled media assets and route-based pages.
-- The SQL schema and handoff materials are preserved in `database work/` for future implementation, adaptation, or sponsor handoff.
-- An older static HTML prototype remains in `site-prototype/` as reference material.
+- The SQL schema and handoff materials are preserved in `database-work/` for future implementation, adaptation, or sponsor handoff.
+- The older static HTML prototype is preserved in `historical-materials/site-prototype-html-old/`.
+- Unused React Router template scratch files are preserved in `historical-materials/react-router-template-scratch/` so the root reflects the real production site structure.
 - Local-only companion project materials may exist in `local_assets/`, but those are intentionally excluded from git.
 
 ## Tech Stack
@@ -26,19 +27,19 @@ The current deployed app is a React single-page site that presents exhibits, col
 
 ## Repository Layout
 
-- `site-prototype-react/`: Active frontend application and deployment target.
-- `site-prototype-react/src/pages/`: Route-level page components for the public site and exhibit flows.
-- `site-prototype-react/src/components/`: Shared layout, navigation, footer, scroll handling, and accessibility controls.
-- `site-prototype-react/src/assets/`: Bundled images and styling assets used by the React app.
-- `database work/`: SQL schema, explanation documents, handoff guide, EER diagram, and MySQL Workbench files.
-- `site-prototype/`: Earlier static prototype preserved for historical/reference purposes.
+- `src/`: Active frontend source code.
+- `src/pages/`: Route-level page components for the public site and exhibit flows.
+- `src/components/`: Shared layout, navigation, footer, scroll handling, and accessibility controls.
+- `src/assets/`: Bundled images and styling assets used by the React app.
+- `public/`: Static public assets and GitHub Pages routing fallback.
+- `dist/`: Built frontend output currently preserved in the repo's main branch.
+- `database-work/`: SQL schema, explanation documents, handoff guide, EER diagram, and MySQL Workbench files.
+- `historical-materials/site-prototype-html-old/`: Earlier static HTML prototype preserved for historical/reference purposes.
+- `historical-materials/react-router-template-scratch/`: Preserved unused template files that are not part of the deployed site.
 
 ## Running Locally
 
-Primary development happens inside `site-prototype-react/`.
-
 ```bash
-cd site-prototype-react
 npm ci
 npm run dev
 ```
@@ -54,17 +55,17 @@ Useful commands:
 
 This project is configured for GitHub Pages repo-path hosting rather than a custom root domain. If the repository slug changes, update all repo-path-sensitive values together:
 
-- `site-prototype-react/package.json` (`homepage`)
-- `site-prototype-react/vite.config.ts` (`base`)
-- `site-prototype-react/src/main.jsx` (`BrowserRouter basename`)
-- `site-prototype-react/public/404.html` (client-side routing fallback path)
+- `package.json` (`homepage`)
+- `vite.config.ts` (`base`)
+- `src/main.jsx` (`BrowserRouter basename`)
+- `public/404.html` (client-side routing fallback path)
 
 ## Maintenance Notes
 
 - Most site content is currently hardcoded in page components rather than driven by a live CMS or backend.
 - The database/schema deliverables are design and handoff artifacts, not an active runtime dependency of the deployed frontend.
-- The root-level `package.json` is not the primary app workflow; use `site-prototype-react/package.json` for install, build, preview, and deploy tasks.
-- The current build emits CSS `@import` ordering warnings from `site-prototype-react/src/assets/styles/custom.css`, but those warnings do not currently block builds or deployment.
+- The primary app workflow is now the repository root; the old nested site folder has been collapsed away.
+- The current build emits CSS `@import` ordering warnings from `src/assets/styles/custom.css`, but those warnings do not currently block builds or deployment.
 
 The original sponsor-facing database and handoff documentation is preserved below.
 

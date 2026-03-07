@@ -1,4 +1,4 @@
-// site-prototype-react/vite.config.js
+// Vite config for the GitHub Pages deployment build.
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from "@tailwindcss/vite";
